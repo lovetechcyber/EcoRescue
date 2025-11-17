@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@google-cloud/vision": "^5.3.4",
+    "africastalking": "^0.7.7",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.13.2",
+    "bullmq": "^5.63.2",
+    "cloudinary": "^2.8.0",
+    "firebase-admin": "^13.6.0",
+    "ioredis": "^5.8.2",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.10",
+    "streamifier": "^0.1.1",
+    "uuid": "^13.0.0"
+  }
+}

@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: ecorescue
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/ecorescue
+      - REDIS_URL=redis://redis:6379
+      - JWT_ACCESS_SECRET=dev_access_secret_please_change
+      - JWT_REFRESH_SECRET=dev_refresh_secret_please_change
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/app
+    command: npm run dev
+
+volumes:
+  mongo-data:
