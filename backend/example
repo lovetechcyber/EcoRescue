@@ -1,0 +1,11 @@
+# EcoRescue Backend (Auth)
+
+cp .env.example .env
+# edit .env secrets
+
+# Run locally (node)
+npm install
+npm run dev
+
+# or using docker-compose
+docker compose up --build
